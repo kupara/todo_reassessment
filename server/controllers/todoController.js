@@ -2,8 +2,8 @@ const ToDo = require('../models/todo');
 
 module.exports = {
   create: (req, res) => {
-    let newTodo = new newTodo({
-      description: req.body.description,
+    let newTodo = new ToDo({
+      text: req.body.text,
       category: req.body.category
     });
 

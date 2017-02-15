@@ -4,6 +4,7 @@ import lint from 'gulp-eslint';
 import babelify from 'babelify';
 import sass from 'gulp-sass';
 import source from 'vinyl-source-stream';
+import nodemon from 'gulp-nodemon';
 import browserify from 'browserify';
 import historyFallback from 'connect-history-api-fallback';
 import mocha from 'gulp-mocha';
@@ -70,4 +71,4 @@ gulp.task('watch', () => {
   gulp.watch(config.files.sass, ['sass']);
 });
 
-gulp.task('default', ['js', 'html', 'lint', 'sass', 'connect', 'watch']);
+gulp.task('default', ['js', 'html', 'lint', 'sass', 'server', 'watch']);
