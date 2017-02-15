@@ -21,14 +21,12 @@ const config = {
   }
 };
 
-gulp.task('connect', () => {
-  connect.server({
-    base: config.baseUrl,
-    root: ['dist'],
-    port: config.port,
-    livereload: true,
-    middleware: () => [historyFallback()]
-  })
+gulp.task('server', () => {
+  nodemon({
+    script: 'server.js'
+  , ext: 'js html'
+  , env: { 'NODE_ENV': 'development' }
+  });
 });
 
 gulp.task('js', () => {
