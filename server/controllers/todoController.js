@@ -14,12 +14,24 @@ module.exports = {
         });
       } else {
         res.json({
-          todo
+          data: todo
         });
       }
     })
   },
-  update: () => {},
+  update: (req, res) => {
+    ToDo.findByIdAndUpdate(req.params.id, req.body.completed, {new: true}, (err, todos) => {
+      if (err) {
+        res.status(501).json({
+          error: err
+        });
+      } else {
+        res.json({
+          data: todos
+        });
+      }
+    });
+  },
   listAll: (req, res) => {
     ToDo.find({}, (err, todos) => {
       if (err) {
@@ -28,9 +40,9 @@ module.exports = {
         });
       } else {
         res.json({
-          todos
+          data: todos
         });
       }
-    })
+    });
   }
 }

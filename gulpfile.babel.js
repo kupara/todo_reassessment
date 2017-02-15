@@ -6,7 +6,6 @@ import sass from 'gulp-sass';
 import source from 'vinyl-source-stream';
 import nodemon from 'gulp-nodemon';
 import browserify from 'browserify';
-import historyFallback from 'connect-history-api-fallback';
 import mocha from 'gulp-mocha';
 
 const config = {
@@ -26,6 +25,7 @@ gulp.task('server', () => {
   nodemon({
     script: 'server.js'
   , ext: 'js html'
+  , ignore: 'app/**/*.js'
   , env: { 'NODE_ENV': 'development' }
   });
 });
@@ -57,7 +57,7 @@ gulp.task('lint', () => {
   gulp.src(config.files.js)
     .pipe(lint())
     .pipe(lint.format())
-    .pipe(lint.failAfterError());
+    // .pipe(lint.failAfterError());
 });
 
 gulp.task('test', () => {
