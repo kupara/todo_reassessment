@@ -20,17 +20,18 @@ module.exports = {
     })
   },
   update: (req, res) => {
-    ToDo.findByIdAndUpdate(req.params.id, req.body.completed, {new: true}, (err, todos) => {
+    ToDo.findOneAndUpdate({_id: req.params.id}, { completed: req.body.completed }, { new: true }, (err, todo) => {
       if (err) {
         res.status(501).json({
           error: err
         });
       } else {
         res.json({
-          data: todos
+          message: 'Todo Updated successfully',
+          data: todo
         });
       }
-    });
+    })
   },
   listAll: (req, res) => {
     ToDo.find({}, (err, todos) => {

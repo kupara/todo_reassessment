@@ -63,9 +63,9 @@ class TodoContainer extends React.Component {
     let inputField = document.querySelector('.todo-input input');
     inputField.value = '';
     createTodo({
-      text: this.state.newTodo.text
-    });
-    
+      text: this.state.newTodo.text,
+      category: this.state.newTodo.category
+    }); 
   }
 
   handleTaskCheck(id) {
@@ -91,6 +91,7 @@ class TodoContainer extends React.Component {
           onChange={this.handleChange}/>
         <SelectField
           floatingLabelText="Category"
+          value={this.state.newTodo.category}
           onChange={this.handleCategoryChange}
         >
           <MenuItem value={'WORK'} primaryText="Work" />
