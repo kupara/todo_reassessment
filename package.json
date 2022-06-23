@@ -32,7 +32,7 @@
     "gulp-mocha": "^3.0.1",
     "gulp-nodemon": "^2.2.1",
     "gulp-sass": "^3.1.0",
-    "jsdom": "^9.9.1",
+    "jsdom": "^16.5.0",
     "mocha": "^3.2.0",
     "react-addons-test-utils": "^15.4.2",
     "vinyl-source-stream": "^1.1.0"
